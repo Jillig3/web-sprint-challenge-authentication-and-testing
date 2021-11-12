@@ -2,7 +2,6 @@ const request = require('supertest')
 const db = require('../data/dbConfig')
 const server = require('./server.js')
 
-// Write your tests here
 test('sanity', () => {
   expect(true).toBe(true)
 })
@@ -23,8 +22,7 @@ describe('Jokes Auth', () => {
   })
 
 
-  describe('[POST] /register', () => {
-    
+  describe('[POST] /register', () => { 
     it(`returns error if no username in body`, async () => {
       const res = await request(server).post('/api/auth/register').send({ username: "Gabe"})
       expect(res.body).toMatchObject({message: "username and password required"})
@@ -38,8 +36,6 @@ describe('Jokes Auth', () => {
       const dbTotal = await db('users')
       expect(dbTotal.length).toEqual(4)
     })
-  
-
   })
 
   describe('[POST] /login', () => {

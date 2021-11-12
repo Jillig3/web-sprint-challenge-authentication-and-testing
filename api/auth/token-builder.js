@@ -14,7 +14,6 @@ const buildToken = (user) => {
         JWT_SECRET,
         options
     )
-    
     return token
 }
 
